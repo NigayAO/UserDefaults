@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddViewControllerDelegate {
+    func save(_ contact: Contact)
+}
+
 class MainTableViewController: UITableViewController {
     
     private var contacts: [Contact] = []
@@ -17,12 +21,11 @@ class MainTableViewController: UITableViewController {
         contacts = StorageManager.shared.fetchContact()
         
         title = "Contact List"
-        let addButton = UIBarButtonItem(
-            barButtonSystemItem: .add,
-            target: self,
-            action: #selector(addButtonPressed))
-        
-        navigationItem.rightBarButtonItem = addButton
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let addVC = segue.destination as? AddViewController else { return }
+        addVC.delegate = self
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,44 +53,15 @@ class MainTableViewController: UITableViewController {
         }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contact = contacts[indexPath.row]
-        showAlert(contact)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    @objc private func addButtonPressed() {
-        showAlert()
-    }
-
 }
 
-//MARK: - AlertControllers
-
-extension MainTableViewController {
-    func showAlert(_ contact: Contact? = nil) {
-        let title = contact != nil ? "Edit" : "New"
-        let alert = UIAlertController(title: title, message: "Create new contact", preferredStyle: .alert)
-        alert.addTextField { textField in
-            textField.placeholder = "Enter Name"
-            textField.text = contact?.name ?? ""
-        }
-        alert.addTextField { textField in
-            textField.placeholder = "Enter SurName"
-            textField.text = contact?.surName ?? ""
-        }
-        
-        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
-            guard let name = alert.textFields?.first?.text, let surName = alert.textFields?.last?.text else { return }
-            let contact = Contact(name: name, surName: surName)
-            self.contacts.append(contact)
-            StorageManager.shared.save(contact)
-            self.tableView.reloadData()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        alert.addAction(cancelAction)
-        alert.addAction(saveAction)
-        
-        present(alert, animated: true)
+//MARK: - MainTableViewControllerDelegate
+extension MainTableViewController: AddViewControllerDelegate {
+    func save(_ contact: Contact) {
+        contacts.append(contact)
+        tableView.reloadData()
     }
 }
 
