@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		1DDBA723276A28EC00C2665C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDBA722276A28EC00C2665C /* AppDelegate.swift */; };
 		1DDBA725276A28EC00C2665C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDBA724276A28EC00C2665C /* SceneDelegate.swift */; };
-		1DDBA727276A28EC00C2665C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDBA726276A28EC00C2665C /* ViewController.swift */; };
+		1DDBA727276A28EC00C2665C /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDBA726276A28EC00C2665C /* MainTableViewController.swift */; };
 		1DDBA72A276A28EC00C2665C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DDBA728276A28EC00C2665C /* Main.storyboard */; };
 		1DDBA72C276A28ED00C2665C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DDBA72B276A28ED00C2665C /* Assets.xcassets */; };
 		1DDBA72F276A28ED00C2665C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DDBA72D276A28ED00C2665C /* LaunchScreen.storyboard */; };
+		1DDBA73B276A38F200C2665C /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDBA73A276A38F200C2665C /* ContactModel.swift */; };
+		1DDBA73E276A390000C2665C /* StoragaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDBA73D276A390000C2665C /* StoragaManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1DDBA71F276A28EC00C2665C /* UserDefaults.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserDefaults.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DDBA722276A28EC00C2665C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DDBA724276A28EC00C2665C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1DDBA726276A28EC00C2665C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1DDBA726276A28EC00C2665C /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		1DDBA729276A28EC00C2665C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DDBA72B276A28ED00C2665C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DDBA72E276A28ED00C2665C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DDBA730276A28ED00C2665C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DDBA73A276A38F200C2665C /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		1DDBA73D276A390000C2665C /* StoragaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoragaManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +62,47 @@
 			children = (
 				1DDBA722276A28EC00C2665C /* AppDelegate.swift */,
 				1DDBA724276A28EC00C2665C /* SceneDelegate.swift */,
-				1DDBA726276A28EC00C2665C /* ViewController.swift */,
-				1DDBA728276A28EC00C2665C /* Main.storyboard */,
+				1DDBA73F276A390300C2665C /* Services */,
+				1DDBA73C276A38F500C2665C /* Models */,
+				1DDBA739276A38DE00C2665C /* ViewControllers */,
+				1DDBA738276A38D600C2665C /* Storyboards */,
 				1DDBA72B276A28ED00C2665C /* Assets.xcassets */,
-				1DDBA72D276A28ED00C2665C /* LaunchScreen.storyboard */,
 				1DDBA730276A28ED00C2665C /* Info.plist */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		1DDBA738276A38D600C2665C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1DDBA728276A28EC00C2665C /* Main.storyboard */,
+				1DDBA72D276A28ED00C2665C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		1DDBA739276A38DE00C2665C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DDBA726276A28EC00C2665C /* MainTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1DDBA73C276A38F500C2665C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1DDBA73A276A38F200C2665C /* ContactModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1DDBA73F276A390300C2665C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1DDBA73D276A390000C2665C /* StoragaManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +176,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DDBA727276A28EC00C2665C /* ViewController.swift in Sources */,
+				1DDBA727276A28EC00C2665C /* MainTableViewController.swift in Sources */,
 				1DDBA723276A28EC00C2665C /* AppDelegate.swift in Sources */,
+				1DDBA73B276A38F200C2665C /* ContactModel.swift in Sources */,
+				1DDBA73E276A390000C2665C /* StoragaManager.swift in Sources */,
 				1DDBA725276A28EC00C2665C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,7 +346,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -334,7 +374,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
